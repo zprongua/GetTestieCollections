@@ -1,24 +1,39 @@
 package rocks.zipcode;
 
+import org.junit.*;
+
 import static org.junit.Assert.*;
 import java.util.Stack;
 
 public class TestStack {
+    Stack<String> stack = new Stack<>();
 
-    @org.junit.Before
+    @Before
     public void setUp() throws Exception {
     }
 
-    @org.junit.After
+    @After
     public void tearDown() throws Exception {
     }
 
-    @org.junit.Test
+    @Test
     public void TestStack1() {
-        Stack<String> stack = new Stack<>();
         stack.push("Hello world");
-        assertEquals(false, stack.isEmpty()); // false
+        assertFalse(stack.isEmpty()); // false
     }
+
+    @Test
+    public void TestStack2() {
+        stack.push("HumptyDumpty");
+        assertEquals("HumptyDumpty", stack.pop());
+    }
+
+    @Test
+    public void TestStack3() {
+        stack.push("Hello world");
+        assertEquals("Hello world", stack.peek());
+    }
+
 
     // Make a bigger test exercising more Stack methods.....
 }
